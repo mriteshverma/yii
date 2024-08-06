@@ -1,4 +1,4 @@
-# CRUD Application on Yii
+# CRUD Application in Yii
 
 ## Install Docker in your Local system
 ## Run Docker command in Project folder
