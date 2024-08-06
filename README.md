@@ -36,7 +36,7 @@ php yii serve
 http://localhost:8080/
 
 ```
-## Admin login credentials
+# Admin login credentials
 ```bash
 Email: admin@gmail.com
 Password: admin@123
