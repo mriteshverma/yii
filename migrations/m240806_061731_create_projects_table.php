@@ -22,6 +22,17 @@ class m240806_061731_create_projects_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ]);
+
+        foreach ([1,2,3,4] as $key => $number) {
+            $this->insert('{{%projects}}', [
+                'name' => 'Project '.$number,
+                'user_id' => 1,
+                'link' => 'http://example'.$number.'.com',
+                'status' => 1,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ]);
+        }
     }
 
     /**

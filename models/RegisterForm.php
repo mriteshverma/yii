@@ -70,13 +70,13 @@ class RegisterForm extends Model
         if (!$this->validate()) {
             return null;
         }
-      
+        
         $user = new User();
         $user->name = $this->name;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        $user->role = (new CastRole)->set($this->role);
+        $user->role = $this->role;
         $user->created_at = time();
         $user->updated_at = time();
 

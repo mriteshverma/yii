@@ -41,21 +41,24 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
         ];
-        if(Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
+
             $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             $menuItems[] = ['label' => 'Register', 'url' => ['/site/signup']];
         } else {
+            $menuItems[] = ['label' => 'Projects', 'url' => ['/projects']];
+            if (Yii::$app->user->identity->getIsAdmin()) {
+                $menuItems[] = ['label' => 'Users', 'url' => ['/users']];
+            }
             $menuItems[] = '<li class="nav-item">'
-                    . Html::beginForm(['/site/logout'])
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->name . ')',
-                        ['class' => 'nav-link btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>';
+                . Html::beginForm(['/site/logout'])
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->name . ')',
+                    ['class' => 'nav-link btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>';
         }
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],

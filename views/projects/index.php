@@ -46,7 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return (new CastStatus)->find($model->status);
                 },
             ],
-            'id',
             [
                 'attribute' => 'created',
                 'value' => function ($model) {

@@ -42,6 +42,9 @@ class ProjectsController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException('The requested page does not exist.'); 
+        }
         $searchModel = new ProjectsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -59,6 +62,9 @@ class ProjectsController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException('The requested page does not exist.'); 
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -71,6 +77,10 @@ class ProjectsController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException('The requested page does not exist.'); 
+        }
+
         $model = new Projects();
       
         if ($this->request->isPost) {
@@ -105,6 +115,9 @@ class ProjectsController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException('The requested page does not exist.'); 
+        }
         $model = $this->findModel($id);
 
         if($this->request->isPost) {
@@ -144,6 +157,9 @@ class ProjectsController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException('The requested page does not exist.'); 
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
