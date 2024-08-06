@@ -22,6 +22,16 @@ class m240805_094825_create_users_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ]);
+
+        $this->insert('{{%users}}', [
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Yii::$app->security->generatePasswordHash('admin@123'),
+            'auth_key' => Yii::$app->security->generateRandomString(),
+            'role' => 1,
+            'created_at' => time(),
+            'updated_at' => time(),
+        ]);
     }
 
     /**

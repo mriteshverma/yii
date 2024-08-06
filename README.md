@@ -35,3 +35,15 @@ php yii serve
 ```bash
 http://localhost:8080/
 
+```
+## Admin login credentials
+```bash
+Email: admin@gmail.com
+Password: admin@123
+```
+
+## Register  
+You can register as manager and user from Register page 
+
+
+## Thanks   
