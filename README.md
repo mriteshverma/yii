@@ -1,9 +1,5 @@
 # CRUD Application on Yii
 
-## Install the Docker
-```bash
-```
-
 ## Run Docker command in Project folder
 ```bash
 docker compose up -d
