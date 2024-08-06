@@ -32,6 +32,7 @@ http://localhost:8000/
 ```bash
 php yii migrate
 php yii serve
+```
 
 ## Use the blow link
 ```bash
